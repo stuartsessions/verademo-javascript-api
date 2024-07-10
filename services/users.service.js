@@ -3,9 +3,10 @@ const md5 = require("blueimp-md5");
 const { isJSDocNonNullableType } = require("typescript");
 
 exports.getUsers = (callback) => {
+  
   db.query(
     `SELECT username,real_name,blab_name,created_at from users`,
-    [],
+    //[],
     (error, results, fields) => {
       if (error) {
         return callback(error);

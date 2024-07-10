@@ -8,10 +8,8 @@ module.exports = (req, res, next) => {
     const myToken = authHeader.split(': ')
     console.log('Check user auth with token:')
     console.log("===========================")
-    console.log(myToken[1])
+    console.log("Token: " + myToken[1])
     console.log("===========================")
-
-
 
     db.query(
         //bad code - SQLi
@@ -19,7 +17,7 @@ module.exports = (req, res, next) => {
     
         //good code
         //`SELECT * from users where password = ?`,
-        [myToken[1]],
+        //[myToken[1]],
         (error, results, fields) => {
             console.log('Results: ' + results)
             if (error || results.length == '0') {
